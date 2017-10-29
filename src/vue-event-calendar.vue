@@ -9,6 +9,7 @@
     </cal-panel>
     <cal-events
       :dayEvents="selectedDayEvents"
+      :eventHeader="eventHeader"
       :locale="calendarOptions.options.locale"
       :color="calendarOptions.options.color">
       <slot :showEvents="selectedDayEvents.events"></slot>
@@ -51,6 +52,9 @@ export default {
         })
         return validate
       }
+    },
+    eventHeader:{
+        type: String
     }
   },
   computed: {

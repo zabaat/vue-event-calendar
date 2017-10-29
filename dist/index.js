@@ -428,6 +428,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -455,6 +458,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     color: {
       type: String,
       required: true
+    },
+    eventHeader: {
+      type: String
     }
   },
   computed: {
@@ -657,6 +663,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -694,6 +701,9 @@ var inBrowser = typeof window !== 'undefined';
         });
         return validate;
       }
+    },
+    eventHeader: {
+      type: String
     }
   },
   computed: {
@@ -971,12 +981,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "events-wrapper",
     style: (_vm.bgColor)
-  }, [_c('h2', {
+  }, [(!_vm.eventHeader) ? _c('h2', {
     staticClass: "date"
-  }, [_vm._v("\n    " + _vm._s(_vm.dayEventsTitle) + "\n  ")]), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n      " + _vm._s(_vm.dayEventsTitle) + "\n  ")]) : _c('h2', {
+    staticClass: "date"
+  }, [_vm._v("\n      " + _vm._s(_vm.eventHeader) + "\n  ")]), _vm._v(" "), _c('div', {
     staticClass: "cal-events"
   }, [_vm._t("default", _vm._l((_vm.events), function(event, index) {
     return _c('div', {
+      key: index,
       staticClass: "event-item"
     }, [_c('cal-event-item', {
       attrs: {
@@ -1008,6 +1021,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('cal-events', {
     attrs: {
       "dayEvents": _vm.selectedDayEvents,
+      "eventHeader": _vm.eventHeader,
       "locale": _vm.calendarOptions.options.locale,
       "color": _vm.calendarOptions.options.color
     }
